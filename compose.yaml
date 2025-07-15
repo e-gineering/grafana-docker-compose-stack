@@ -5,7 +5,7 @@ services:
   #     - "8080:8080"
 
   grafana:
-    image: grafana/grafana:10.2.2
+    image: grafana/grafana:12.0.2
     volumes:
       - ./configs/grafana/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml
     environment:
@@ -16,7 +16,7 @@ services:
       - "3000:3000"
 
   prometheus:
-    image: prom/prometheus:v2.48.0
+    image: prom/prometheus:v3.5.0
     command:
       - --config.file=/etc/prometheus.yaml
       - --web.enable-remote-write-receiver
@@ -27,7 +27,7 @@ services:
       - "9090:9090"
 
   tempo:
-    image: grafana/tempo:2.3.1
+    image: grafana/tempo:2.8.1
     command:
       - -config.file=/etc/tempo.yaml
     volumes:
