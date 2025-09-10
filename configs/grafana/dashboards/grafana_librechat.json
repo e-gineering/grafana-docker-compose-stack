@@ -1571,8 +1571,8 @@
       {
         "current": {
           "selected": false,
-          "text": "Prometheus-1",
-          "value": "Prometheus-1"
+          "text": "Prometheus",
+          "value": "Prometheus"
         },
         "hide": 0,
         "includeAll": false,
@@ -1582,11 +1582,11 @@
         "options": [
           {
             "selected": true,
-            "text": "Prometheus-1",
-            "value": "Prometheus-1"
+            "text": "Prometheus",
+            "value": "Prometheus"
           }
         ],
-        "query": "Prometheus-1",
+        "query": "Prometheus",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
