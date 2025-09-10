@@ -1,13 +1,11 @@
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
-
 scrape_configs:
-  - job_name: my-app
+  - job_name: LibreChat
     static_configs:
       - targets:
-          - app:8080
-    metrics_path: /q/metrics
+          - librechat-metrics-1:8000
   - job_name: prometheus
     static_configs:
       - targets:
