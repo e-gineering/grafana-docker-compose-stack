@@ -3,7 +3,7 @@ services:
     image: grafana/grafana:12.0.2
     volumes:
       - ./configs/grafana/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml
-      - ./configs/grafana/dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml
+      - ./configs/grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml
       - ./configs/grafana/dashboards:/etc/grafana/provisioning/dashboards
       - grafana-storage:/var/lib/grafana
     environment:
@@ -31,20 +31,9 @@ services:
       - --enable-feature=exemplar-storage
     volumes:
       - ./configs/prometheus/prometheus.yaml:/etc/prometheus.yaml
+      - prom-data:/prometheus
     ports:
       - "9090:9090"
-    networks:
-      - librechat_default
-  tempo:
-    image: grafana/tempo:2.8.1
-    command:
-      - -config.file=/etc/tempo.yaml
-    volumes:
-      - ./configs/tempo/tempo.yaml:/etc/tempo.yaml
-      - tempo-data:/tmp/tempo
-    ports:
-      - "3200:3200" # tempo
-      - "4317:4317" # otlp grpc
     networks:
       - librechat_default
 networks:
@@ -53,3 +42,4 @@ networks:
 volumes:
   tempo-data:
   grafana-storage:
+  prom-data:
